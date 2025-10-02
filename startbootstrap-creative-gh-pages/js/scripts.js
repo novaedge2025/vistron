@@ -57,3 +57,21 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const el = document.getElementById("typewriter");
+  const text = el.textContent.trim();
+  el.textContent = ""; // clear existing text
+
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 80); // speed in ms per character
+    }
+  }
+
+  setTimeout(typeWriter, 300); // delay before starting
+});
+
